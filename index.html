@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LittleMen Toys</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Fredoka:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Fredoka:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     * {
       box-sizing: border-box;
@@ -23,14 +23,29 @@
     }
 
     @keyframes rainbowBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     @keyframes floatUp {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(-200px); opacity: 0; }
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-200px);
+        opacity: 0;
+      }
     }
 
     header {
@@ -43,9 +58,19 @@
     }
 
     @keyframes bounceIn {
-      0% { transform: scale(0.5); opacity: 0; }
-      60% { transform: scale(1.1); opacity: 1; }
-      100% { transform: scale(1); }
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+
+      60% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1);
+      }
     }
 
     header h1 {
@@ -85,8 +110,15 @@
     }
 
     @keyframes slideIn {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     .hero-text h2 {
@@ -180,8 +212,15 @@
     }
 
     @keyframes slideUp {
-      from { transform: translateY(100px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+      from {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     .cta {
@@ -197,7 +236,7 @@
       color: #000;
       border: none;
       border-radius: 40px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.25);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
       cursor: pointer;
       transition: transform 0.3s ease, background 0.3s ease;
     }
@@ -216,17 +255,16 @@
   </header>
 
   <section class="hero">
-  <div class="hero-img">
-    <img src="robot.jpg" alt="LittleMen Toy" />
-  </div>
-  <div class="hero-text">
-    <h2>Welcome to the Madness</h2>
-    <p>
-      Meet LittleMen: the wildest, most collectible ragdoll toys on the planet. They're bendy, bouncy, and built for serious fun — whether you're 8 or 88. Now in sleek grays and metallic golds, designed with ADHD and sensory needs in mind.
-    </p>
-  </div>
-</section>
-
+    <div class="hero-img">
+      <img src="images/littlemen.jpg" alt="LittleMen Toy" />
+    </div>
+    <div class="hero-text">
+      <h2>Welcome to the Madness</h2>
+      <p>
+        Meet LittleMen: the wildest, most collectible ragdoll toys on the planet. They're bendy, bouncy, and built for serious fun — whether you're 8 or 88. Now in sleek grays and metallic golds, designed with ADHD and sensory needs in mind.
+      </p>
+    </div>
+  </section>
 
   <section class="features">
     <div class="feature">
