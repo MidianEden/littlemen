@@ -352,6 +352,170 @@
       }, 2000);
     });
   </script>
+  <section id="daily-puzzle" style="padding: 3rem 10%; text-align: center; color: white;">
+  <h2>Daily Sliding Puzzle</h2>
+  <p>Put the pieces back to reveal today's LittleMen!</p>
+  <div id="puzzle-container" style="margin: auto; max-width: 360px; position: relative;"></div>
+  <button id="shuffle-btn" style="margin-top: 1rem; padding: 0.5rem 1rem; border-radius: 10px; border:none; cursor:pointer;">Shuffle & Start</button>
+  <p id="puzzle-message" style="margin-top: 1rem; font-weight: bold;"></p>
+</section>
+
+<script>
+(() => {
+  const images = [
+    'images/littlemen.jpg',
+    'images/reptile.jpg',
+    'images/astronaut.jpg',
+    'images/skeleton.jpg',
+    'images/skelepirate.jpg',
+    'images/boxer.jpg',
+    'images/duck.jpg',
+    'images/ninja.jpg',
+    'images/alien.jpg',
+    'images/allgold.jpg'
+  ];
+
+  const puzzleSize = 3; // 3x3 tiles
+  const tileCount = puzzleSize * puzzleSize;
+  const tileSize = 120; // pixels per tile (adjust if needed)
+  let emptyTile = tileCount - 1;
+  let tiles = [];
+  let moves = 0;
+
+  const container = document.getElementById('puzzle-container');
+  const message = document.getElementById('puzzle-message');
+  const shuffleBtn = document.getElementById('shuffle-btn');
+
+  // Pick image based on date (rotate through images)
+  const today = new Date();
+  const imageIndex = today.getDate() % images.length;
+  const imageURL = images[imageIndex];
+
+  container.style.width = tileSize * puzzleSize + 'px';
+  container.style.height = tileSize * puzzleSize + 'px';
+  container.style.border = '4px solid #fff';
+  container.style.borderRadius = '15px';
+  container.style.backgroundImage = `url(${imageURL})`;
+  container.style.backgroundSize = `${tileSize * puzzleSize}px ${tileSize * puzzleSize}px`;
+  container.style.position = 'relative';
+  container.style.userSelect = 'none';
+
+  function createTiles() {
+    tiles = [];
+    container.innerHTML = '';
+    for(let i=0; i<tileCount; i++) {
+      if(i === emptyTile) continue; // skip the empty tile
+
+      const tile = document.createElement('div');
+      tile.style.width = tileSize + 'px';
+      tile.style.height = tileSize + 'px';
+      tile.style.position = 'absolute';
+      tile.style.border = '2px solid #fff';
+      tile.style.borderRadius = '10px';
+      tile.style.cursor = 'pointer';
+
+      // Set tile background from main image (show only the tile part)
+      const x = (i % puzzleSize) * tileSize;
+      const y = Math.floor(i / puzzleSize) * tileSize;
+      tile.style.backgroundImage = `url(${imageURL})`;
+      tile.style.backgroundPosition = `-${x}px -${y}px`;
+      tile.style.backgroundSize = `${tileSize * puzzleSize}px ${tileSize * puzzleSize}px`;
+
+      tile.dataset.index = i;
+      tile.style.left = x + 'px';
+      tile.style.top = y + 'px';
+
+      tile.addEventListener('click', () => {
+        moveTile(parseInt(tile.dataset.index));
+      });
+
+      container.appendChild(tile);
+      tiles.push(i);
+    }
+  }
+
+  function moveTile(index) {
+    const emptyRow = Math.floor(emptyTile / puzzleSize);
+    const emptyCol = emptyTile % puzzleSize;
+    const tileRow = Math.floor(index / puzzleSize);
+    const tileCol = index % puzzleSize;
+
+    // Check if clicked tile is adjacent to empty tile
+    const isAdjacent = (tileRow === emptyRow && Math.abs(tileCol - emptyCol) === 1) ||
+                       (tileCol === emptyCol && Math.abs(tileRow - emptyRow) === 1);
+
+    if(!isAdjacent) return;
+
+    // Swap positions
+    const tileElement = [...container.children].find(t => parseInt(t.dataset.index) === index);
+    if(!tileElement) return;
+
+    // Move tile visually
+    tileElement.style.left = (emptyCol * tileSize) + 'px';
+    tileElement.style.top = (emptyRow * tileSize) + 'px';
+
+    // Update dataset index of tile to emptyTile
+    tileElement.dataset.index = emptyTile;
+
+    // Update tiles array
+    tiles[tiles.indexOf(index)] = emptyTile;
+
+    emptyTile = index;
+    moves++;
+    checkSolved();
+  }
+
+  function shuffle() {
+    moves = 0;
+    emptyTile = tileCount - 1;
+    let previousMove;
+    for(let i=0; i<1000; i++) {
+      const neighbors = getNeighbors(emptyTile);
+      // Avoid undoing previous move
+      const filtered = neighbors.filter(n => n !== previousMove);
+      const nextMove = filtered[Math.floor(Math.random() * filtered.length)];
+      moveTile(nextMove);
+      previousMove = emptyTile;
+    }
+    moves = 0;
+    message.textContent = '';
+  }
+
+  function getNeighbors(tile) {
+    const row = Math.floor(tile / puzzleSize);
+    const col = tile % puzzleSize;
+    const neighbors = [];
+    if(row > 0) neighbors.push(tile - puzzleSize);
+    if(row < puzzleSize -1) neighbors.push(tile + puzzleSize);
+    if(col > 0) neighbors.push(tile - 1);
+    if(col < puzzleSize -1) neighbors.push(tile + 1);
+    return neighbors;
+  }
+
+  function checkSolved() {
+    // Tiles are solved if tile dataset indices equal their position except empty tile
+    let solved = true;
+    for(let i=0; i<tiles.length; i++) {
+      if(parseInt([...container.children][i].dataset.index) !== i) {
+        solved = false;
+        break;
+      }
+    }
+    if(solved) {
+      message.textContent = `Nice! You solved it in ${moves} moves. 🎉`;
+    }
+  }
+
+  shuffleBtn.addEventListener('click', () => {
+    shuffle();
+  });
+
+  // Initialize on page load
+  createTiles();
+  shuffle();
+})();
+</script>
+
 </body>
 
 </html>
