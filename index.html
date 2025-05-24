@@ -559,6 +559,95 @@
   createTiles();
   shuffle();
 })();
+  // Countdown timer that resets every 2 weeks on Friday at 00:00
+function getNextFriday() {
+  const now = new Date();
+  // Calculate weeks since epoch (Friday = 5)
+  const msInWeek = 7 * 24 * 60 * 60 * 1000;
+  const msIn2Weeks = msInWeek * 2;
+  const day = now.getDay();
+
+  // Find most recent Friday 00:00
+  const daysSinceFriday = (day >= 5) ? day - 5 : day + 2; // days passed since last Friday
+  const lastFriday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - daysSinceFriday);
+  lastFriday.setHours(0,0,0,0);
+
+  // Find next Friday every 2 weeks (2 weeks after lastFriday)
+  let nextFriday = new Date(lastFriday.getTime());
+  while (nextFriday <= now) {
+    nextFriday = new Date(nextFriday.getTime() + msIn2Weeks);
+  }
+
+  return nextFriday;
+}
+
+function updateCountdown() {
+  const target = getNextFriday();
+  const now = new Date();
+  const diff = target - now;
+
+  if (diff <= 0) {
+    document.getElementById('timer').textContent = 'Now!';
+    return;
+  }
+
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+  const seconds = Math.floor((diff % (1000*60)) / 1000);
+
+  document.getElementById('timer').textContent = 
+    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+// Create drifting shapes dynamically
+function createDriftingShapes() {
+  const container = document.querySelector('.drifting-shapes');
+  const shapesCount = 15;
+
+  for(let i=0; i < shapesCount; i++) {
+    const shape = document.createElement('div');
+    shape.classList.add('drifting-shape');
+
+    // Randomly pick circle or star shape
+    if (Math.random() > 0.5) {
+      shape.classList.add('shape-circle');
+    } else {
+      shape.classList.add('shape-star');
+    }
+
+    // Random initial position inside container
+    shape.style.left = `${Math.random() * 100}%`;
+    shape.style.top = `${Math.random() * 100}%`;
+
+    // Random animation duration and delay
+    const duration = 15 + Math.random() * 20; // 15-35 seconds
+    const delay = Math.random() * -duration;
+
+    // Define drifting animation keyframes inline via JS
+    shape.style.animationName = 'drift';
+    shape.style.animationDuration = `${duration}s`;
+    shape.style.animationDelay = `${delay}s`;
+    shape.style.animationTimingFunction = 'linear';
+    shape.style.animationIterationCount = 'infinite';
+
+    container.appendChild(shape);
+  }
+}
+
+// Add keyframes for drifting (horizontal left-right float)
+const styleSheet = document.styleSheets[0];
+styleSheet.insertRule(`@keyframes drift {
+  0% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(20px) translateY(10px); }
+  100% { transform: translateX(0) translateY(0); }
+}`, styleSheet.cssRules.length);
+
+// Run everything
+createDriftingShapes();
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
 </script>
 
 </body>
