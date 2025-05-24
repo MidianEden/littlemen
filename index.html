@@ -256,142 +256,172 @@
     }
 
     .carousel {
-      position: relative;
-      max-width: 500px;
-      margin: auto;
-      overflow: hidden;
-    }
+  position: relative;
+  max-width: 500px;
+  margin: auto;
+  overflow: hidden;
+}
 
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
 
-    .carousel-track img {
-      width: 100%;
-      flex: 0 0 100%;
-      border-radius: 15px;
-      border: 4px solid #fff;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-    }
+.carousel-track img {
+  width: 100%;
+  flex: 0 0 100%;
+  border-radius: 15px;
+  border: 4px solid #fff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
 
-    .prev,
-    .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2rem;
-      color: white;
-      background: rgba(0, 0, 0, 0.3);
-      border: none;
-      cursor: pointer;
-      padding: 0.5rem;
-      z-index: 1;
-      border-radius: 50%;
-    }
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1;
+  border-radius: 50%;
+}
 
-    .prev:hover,
-    .next:hover {
-      background: rgba(255, 255, 255, 0.5);
-      color: black;
-    }
+.prev:hover,
+.next:hover {
+  background: rgba(255, 255, 255, 0.5);
+  color: black;
+}
 
-    .prev {
-      left: 10px;
-    }
+.prev {
+  left: 10px;
+}
 
-    .next {
-      right: 10px;
-    }
+.next {
+  right: 10px;
+}
+
   </style>
 </head>
 
 <body>
   <header>
     <h1 id="name">LittleMen</h1>
-    <p>Fun, chaotic, collectible toys</p>
+    <p>Fun, chaotic, and collectible for EVERYONE</p>
   </header>
 
   <section class="hero">
-    <div class="hero-text">
-      <h2>Meet the Unbreakable Toy</h2>
-      <p>LittleMen are 3D-printed ragdoll robots built for fun, stress relief, and collecting. Toss them, twist them, make them dance—these guys can handle it.</p>
-    </div>
     <div class="hero-img">
-      <img src="https://via.placeholder.com/300x300.png?text=LittleMen" alt="LittleMen Toy">
+      <img src="images/littlemen.jpg" alt="LittleMen Toy" />
+    </div>
+    <div class="hero-text">
+      <h2>Welcome to the Madness</h2>
+      <p>
+        Meet LittleMen: the wildest, most collectible ragdoll toys on the planet. They're bendy, bouncy, and built for serious fun — whether you're 8 or 88. Now in sleek grays and metallic golds, designed with ADHD and sensory needs in mind.
+      </p>
     </div>
   </section>
 
   <section class="features">
     <div class="feature">
-      <h3>Super Durable</h3>
-      <p>Made to survive even the wildest play sessions.</p>
+      <h3>Indestructibly Cool</h3>
+      <p>Crash them, smash them, twist them – they love it. Engineered for impact!</p>
     </div>
     <div class="feature">
-      <h3>Fidget Friendly</h3>
-      <p>Great for stress relief and sensory fun.</p>
+      <h3>Chill Colors</h3>
+      <p>Matte grays, stealth golds, and smooth textures perfect for focus or fidgeting.</p>
     </div>
     <div class="feature">
-      <h3>Collect Them All</h3>
-      <p>With unique designs and colors, there’s one for everyone.</p>
+      <h3>Build Your Squad</h3>
+      <p>New drops monthly — swap, collect, and create your own crew of chaos.</p>
     </div>
   </section>
 
   <section class="reviews">
-    <h2>What People Say</h2>
-    <div class="review">“My son hasn’t stopped playing with it!”<span>- Jenna R.</span></div>
-    <div class="review">“Best stress toy I’ve bought all year.”<span>- Leo D.</span></div>
+    <h2>What LittleMen Fans Say</h2>
+    <div class="review">“Great quality and awesome customer service!”<span>– Dennise (5⭐)</span></div>
+    <div class="review">“Second time buying and I have some happy kids they love it💖”<span>– Ashlee (5⭐)</span></div>
+    <div class="review">“Absolutely awesome love love! Great communication product well made and amazing for donating profits to help the hungry. Very pleased already ordered again”<span>– Ashlee (5⭐)</span></div>
+    <div class="review">“Great size. Bigger than I expected which its awesome.”<span>– Gianelle (5⭐)</span></div>
+    <div class="review">“Perfect. It met expectations. Thank you!”<span>– Lindsay (5⭐)</span></div>
+    <div class="review">“My son loves this little fidget. Quality is solid! Highly recommended!”<span>– Cody (5⭐)</span></div>
+    <div class="review">“I absolutely love this toy and highly recommend it to everyone.”<span>– Nika (5⭐)</span></div>
   </section>
 
   <section class="gallery">
-    <h2>Gallery</h2>
-    <div class="carousel">
-      <button class="prev">&#10094;</button>
-      <div class="carousel-track" id="carouselTrack">
-        <img src="https://via.placeholder.com/500x300?text=LittleMen+1" alt="LittleMen 1">
-        <img src="https://via.placeholder.com/500x300?text=LittleMen+2" alt="LittleMen 2">
-        <img src="https://via.placeholder.com/500x300?text=LittleMen+3" alt="LittleMen 3">
-      </div>
-      <button class="next">&#10095;</button>
+    <h2>Meet the Squad</h2>
+    <div class="gallery-grid">
+      <img src="images/reptile.jpg" alt="LittleReptile">
+      <img src="images/astronaut.jpg" alt="LittleAstronaut">
+      <img src="images/skeleton.jpg" alt="LittleSkeleton">
+      <img src="images/skelepirate.jpg" alt="LittleSkelePirate">
+      <img src="images/boxer.jpg" alt="LittleBoxer">
+      <img src="images/duck.jpg" alt="LittleDuck">
+      <img src="images/ninja.jpg" alt="LittleNinja">
+      <img src="images/alien.jpg" alt="LittleAlien">
+      <img src="images/allgold.jpg" alt="All Gold LittleRobot">
     </div>
   </section>
 
   <div class="cta">
-    <button class="cta-button" onclick="alert('Coming Soon!')">Shop Now</button>
+    <a href="https://www.littlementoys.etsy.com" target="_blank">
+      <button class="cta-button">Get Your LittleMen</button>
+    </a>
+  </div>
+
+  <div class="easter-egg" id="easterEgg">
+    You found the secret! 🌈 Stay chaotic!
   </div>
 
   <footer>
-    &copy; 2025 LittleMen Toys. All rights reserved.
+    &copy; 2025 LittleMen Toys — Made to wiggle by Luka L.
   </footer>
 
-  <div class="easter-egg" id="easterEgg">Wazzahhh! You found me!</div>
-
   <script>
-    // Floating wave effect on header click
-    document.getElementById('name').addEventListener('click', function (e) {
-      const wave = document.createElement('div');
-      wave.classList.add('wave');
-      wave.style.left = e.clientX + 'px';
-      wave.style.top = e.clientY + 'px';
-      wave.textContent = '🌈';
-      document.body.appendChild(wave);
-      setTimeout(() => wave.remove(), 2000);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'L') {
+        document.getElementById('easterEgg').style.display = 'block';
+      }
     });
 
-    // Carousel logic
-    const track = document.getElementById('carouselTrack');
-    const slides = track.children;
-    let index = 0;
+    document.getElementById('name').addEventListener('click', (e) => {
+      const wave = document.createElement('div');
+      wave.classList.add('wave');
+      wave.innerText = '👋';
+      wave.style.left = `${e.clientX}px`;
+      wave.style.top = `${e.clientY}px`;
+      document.body.appendChild(wave);
 
-    function showSlide(i) {
-      index = (i + slides.length) % slides.length;
-      track.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    document.querySelector('.next').addEventListener('click', () => showSlide(index + 1));
-    document.querySelector('.prev').addEventListener('click', () => showSlide(index - 1));
+      setTimeout(() => {
+        wave.remove();
+      }, 2000);
+    });
   </script>
+  <script>
+  const track = document.querySelector('.carousel-track');
+  const images = document.querySelectorAll('.carousel-track img');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  let index = 0;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    index = (index === 0) ? images.length - 1 : index - 1;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % images.length;
+    updateCarousel();
+  });
+</script>
+
 </body>
 
 </html>
-
