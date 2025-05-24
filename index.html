@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,9 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LittleMen Toys</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Fredoka:wght@600&family=Quicksand:wght@400;600&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Fredoka:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     * {
       box-sizing: border-box;
@@ -22,34 +21,17 @@
       animation: rainbowBG 30s ease infinite;
       color: #fff;
       overflow-x: hidden;
-      position: relative;
-      min-height: 100vh;
     }
 
     @keyframes rainbowBG {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     @keyframes floatUp {
-      0% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-
-      100% {
-        transform: translateY(-200px);
-        opacity: 0;
-      }
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-200px); opacity: 0; }
     }
 
     header {
@@ -62,19 +44,9 @@
     }
 
     @keyframes bounceIn {
-      0% {
-        transform: scale(0.5);
-        opacity: 0;
-      }
-
-      60% {
-        transform: scale(1.1);
-        opacity: 1;
-      }
-
-      100% {
-        transform: scale(1);
-      }
+      0% { transform: scale(0.5); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
     }
 
     header h1 {
@@ -104,53 +76,6 @@
       align-items: center;
       padding: 4rem 10%;
       background: transparent;
-      position: relative;
-      z-index: 1;
-    }
-
-    .drifting-shapes {
-      position: absolute;
-      top: 0;
-      left: 10%;
-      width: 80%;
-      height: 300px;
-      pointer-events: none;
-      overflow: visible;
-      z-index: 0;
-    }
-
-    .drifting-shape {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.3;
-      background: rgba(255, 255, 255, 0.15);
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.1));
-    }
-
-    .shape-circle {
-      width: 30px;
-      height: 30px;
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    .shape-star {
-      width: 24px;
-      height: 24px;
-      background: radial-gradient(circle, #ffca3a 60%, transparent 70%);
-      clip-path: polygon(
-        50% 0%,
-        61% 35%,
-        98% 35%,
-        68% 57%,
-        79% 91%,
-        50% 70%,
-        21% 91%,
-        32% 57%,
-        2% 35%,
-        39% 35%
-      );
     }
 
     .hero-text {
@@ -160,25 +85,9 @@
       animation: slideIn 2s ease;
     }
 
-    #countdown {
-      margin: 1.5rem 0;
-      font-family: 'Fredoka', sans-serif;
-      font-size: 1.3rem;
-      color: #fff;
-      text-align: center;
-      text-shadow: 1px 1px 4px #000;
-    }
-
     @keyframes slideIn {
-      from {
-        transform: translateY(50px);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     .hero-text h2 {
@@ -248,14 +157,12 @@
       font-size: 1rem;
     }
 
-    .reviews,
-    .gallery {
+    .reviews, .gallery {
       padding: 4rem 10%;
       text-align: center;
     }
 
-    .reviews h2,
-    .gallery h2 {
+    .reviews h2, .gallery h2 {
       font-size: 2rem;
       margin-bottom: 2rem;
       color: #fff;
@@ -263,7 +170,7 @@
     }
 
     .review {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255,255,255,0.1);
       border-radius: 15px;
       padding: 1rem 2rem;
       margin: 1rem auto;
@@ -312,41 +219,49 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #ffca3a;
+      background: #fff;
       color: #000;
-      padding: 1rem 2rem;
-      border-radius: 30px;
-      font-weight: 700;
-      font-family: 'Press Start 2P', cursive;
-      cursor: pointer;
-      box-shadow: 0 0 15px #fff;
-      animation: pulse 1.5s ease-in-out infinite;
-      z-index: 1000;
+      padding: 1rem;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #000;
+      font-family: 'Quicksand', sans-serif;
+      animation: slideUp 0.6s ease forwards;
     }
 
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 0 15px #fff;
-      }
+    @keyframes slideUp {
+      from { transform: translateY(100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
 
-      50% {
-        transform: scale(1.1);
-        box-shadow: 0 0 25px #fff;
-      }
+    .cta {
+      text-align: center;
+      margin: 4rem auto 0;
+    }
 
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 15px #fff;
-      }
+    .cta-button {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.3rem;
+      padding: 0.9rem 2rem;
+      background: #ffffff;
+      color: #000;
+      border: none;
+      border-radius: 40px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.25);
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: #ffca3a;
+      transform: scale(1.08);
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1 title="Click for a surprise!">LittleMen Toys</h1>
-    <p>Rag Doll Madness. Collect ’Em All!</p>
+    <h1 id="name">LittleMen</h1>
+    <p>Fun, chaotic, and collectible for EVERYONE</p>
   </header>
 
   <section class="hero">
@@ -355,150 +270,252 @@
     </div>
     <div class="hero-text">
       <h2>Welcome to the Madness</h2>
-      <p>Meet LittleMen: the wildest, most collectible ragdoll toys on the planet...</p>
-
-      <div id="countdown">
-        Next Toy Drop In: <span id="timer">Loading...</span>
-      </div>
+      <p>
+        Meet LittleMen: the wildest, most collectible ragdoll toys on the planet. They're bendy, bouncy, and built for serious fun — whether you're 8 or 88. Now in sleek grays and metallic golds, designed with ADHD and sensory needs in mind.
+      </p>
     </div>
-    <div class="drifting-shapes"></div>
   </section>
 
   <section class="features">
     <div class="feature">
-      <h3>Unique Designs</h3>
-      <p>Every LittleMen doll is a handcrafted masterpiece.</p>
+      <h3>Indestructibly Cool</h3>
+      <p>Crash them, smash them, twist them – they love it. Engineered for impact!</p>
     </div>
     <div class="feature">
-      <h3>Limited Editions</h3>
-      <p>Collect rare dolls with exclusive releases.</p>
+      <h3>Chill Colors</h3>
+      <p>Matte grays, stealth golds, and smooth textures perfect for focus or fidgeting.</p>
     </div>
     <div class="feature">
-      <h3>Community</h3>
-      <p>Join a global family of collectors and fans.</p>
+      <h3>Build Your Squad</h3>
+      <p>New drops monthly — swap, collect, and create your own crew of chaos.</p>
     </div>
   </section>
 
   <section class="reviews">
-    <h2>What People Say</h2>
-    <div class="review">
-      "Absolutely love my LittleMen doll! So quirky and fun."
-      <span>- Alex P.</span>
-    </div>
-    <div class="review">
-      "The craftsmanship is top-notch. A must-have for collectors!"
-      <span>- Jamie L.</span>
-    </div>
+    <h2>What LittleMen Fans Say</h2>
+    <div class="review">“Great quality and awesome customer service!”<span>– Dennise (5⭐)</span></div>
+    <div class="review">“Second time buying and I have some happy kids they love it💖”<span>– Ashlee (5⭐)</span></div>
+    <div class="review">“Absolutely awesome love love! Great communication product well made and amazing for donating profits to help the hungry. Very pleased already ordered again”<span>– Ashlee (5⭐)</span></div>
+    <div class="review">“Great size. Bigger than I expected which its awesome.”<span>– Gianelle (5⭐)</span></div>
+    <div class="review">“Perfect. It met expectations. Thank you!”<span>– Lindsay (5⭐)</span></div>
+    <div class="review">“My son loves this little fidget. Quality is solid! Highly recommended!”<span>– Cody (5⭐)</span></div>
+    <div class="review">“I absolutely love this toy and highly recommend it to everyone.”<span>– Nika (5⭐)</span></div>
   </section>
 
   <section class="gallery">
-    <h2>Gallery</h2>
+    <h2>Meet the Squad</h2>
     <div class="gallery-grid">
-      <img src="images/gallery1.jpg" alt="Gallery image 1" />
-      <img src="images/gallery2.jpg" alt="Gallery image 2" />
-      <img src="images/gallery3.jpg" alt="Gallery image 3" />
-      <img src="images/gallery4.jpg" alt="Gallery image 4" />
+      <img src="images/reptile.jpg" alt="LittleReptile">
+      <img src="images/astronaut.jpg" alt="LittleAstronaut">
+      <img src="images/skeleton.jpg" alt="LittleSkeleton">
+      <img src="images/skelepirate.jpg" alt="LittleSkelePirate">
+      <img src="images/boxer.jpg" alt="LittleBoxer">
+      <img src="images/duck.jpg" alt="LittleDuck">
+      <img src="images/ninja.jpg" alt="LittleNinja">
+      <img src="images/alien.jpg" alt="LittleAlien">
+      <img src="images/allgold.jpg" alt="All Gold LittleRobot">
+      <img src="images/littlemen.jpg" alt="LittleRobot">
     </div>
   </section>
 
+  <div class="cta">
+    <a href="https://www.littlementoys.etsy.com" target="_blank">
+      <button class="cta-button">Get Your LittleMen</button>
+    </a>
+  </div>
+
+  <div class="easter-egg" id="easterEgg">
+    You found the secret! 🌈 Stay chaotic!
+  </div>
+
   <footer>
-    <p>© 2025 LittleMen Toys. All Rights Reserved.</p>
+    &copy; 2025 LittleMen Toys — Made to wiggle by Luka L.
   </footer>
 
-  <div class="easter-egg">🎉 Surprise! 🎉</div>
-
   <script>
-    // Floating wave on click
-    document.body.addEventListener('click', function (e) {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'L') {
+        document.getElementById('easterEgg').style.display = 'block';
+      }
+    });
+
+    document.getElementById('name').addEventListener('click', (e) => {
       const wave = document.createElement('div');
-      wave.className = 'wave';
-      wave.style.left = e.pageX + 'px';
-      wave.style.top = e.pageY + 'px';
-      wave.textContent = '👋';
+      wave.classList.add('wave');
+      wave.innerText = '👋';
+      wave.style.left = `${e.clientX}px`;
+      wave.style.top = `${e.clientY}px`;
       document.body.appendChild(wave);
 
       setTimeout(() => {
         wave.remove();
       }, 2000);
     });
-
-    // Create drifting shapes animation
-    const shapesContainer = document.querySelector('.drifting-shapes');
-
-    function createShape() {
-      const shape = document.createElement('div');
-      shape.classList.add('drifting-shape');
-
-      // Randomly choose a shape type
-      const types = ['shape-circle', 'shape-star'];
-      const chosenType = types[Math.floor(Math.random() * types.length)];
-      shape.classList.add(chosenType);
-
-      // Random size between 10 and 40 px
-      const size = Math.floor(Math.random() * 30) + 10;
-      shape.style.width = size + 'px';
-      shape.style.height = size + 'px';
-
-      // Random initial position within container width and height
-      shape.style.left = Math.random() * 100 + '%';
-      shape.style.top = '100%';
-
-      // Random animation duration between 8s and 18s
-      const duration = Math.random() * 10 + 8;
-
-      shape.style.animation = `floatUp ${duration}s linear infinite`;
-      shapesContainer.appendChild(shape);
-
-      // Remove shape after animation duration
-      setTimeout(() => {
-        shape.remove();
-      }, duration * 1000);
-    }
-
-    // Create shapes every 1 second
-    setInterval(createShape, 1000);
-
-    // Countdown timer to next Friday 10AM
-    function getNextFriday10AM() {
-      const now = new Date();
-      const day = now.getDay();
-      const daysUntilFriday = (5 - day + 7) % 7 || 7; // days until next Friday
-      const nextFriday = new Date(now.getFullYear(), now.getMonth(), now.getDate() + daysUntilFriday, 10, 0, 0);
-      return nextFriday;
-    }
-
-    function updateCountdown() {
-      const now = new Date();
-      const target = getNextFriday10AM();
-      const diff = target - now;
-
-      if (diff <= 0) {
-        document.getElementById('timer').textContent = "It's Toy Drop Time!";
-        return;
-      }
-
-      const hours = Math.floor(diff / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      document.getElementById('timer').textContent =
-        `${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-
-    // Easter egg on header click
-    const headerTitle = document.querySelector('header h1');
-    const easterEgg = document.querySelector('.easter-egg');
-
-    headerTitle.addEventListener('click', () => {
-      easterEgg.style.display = 'block';
-      setTimeout(() => {
-        easterEgg.style.display = 'none';
-      }, 4000);
-    });
   </script>
+  <section id="daily-puzzle" style="padding: 3rem 10%; text-align: center; color: white;">
+  <h2>Daily Sliding Puzzle</h2>
+  <p>Put the pieces back to reveal today's LittleMen!</p>
+  <div id="puzzle-container" style="margin: auto; max-width: 360px; position: relative;"></div>
+  <button id="shuffle-btn" style="margin-top: 1rem; padding: 0.5rem 1rem; border-radius: 10px; border:none; cursor:pointer;">Shuffle & Start</button>
+  <p id="puzzle-message" style="margin-top: 1rem; font-weight: bold;"></p>
+</section>
+
+<script>
+(() => {
+  const images = [
+    'images/littlemen.jpg',
+    'images/reptile.jpg',
+    'images/astronaut.jpg',
+    'images/skeleton.jpg',
+    'images/skelepirate.jpg',
+    'images/boxer.jpg',
+    'images/duck.jpg',
+    'images/ninja.jpg',
+    'images/alien.jpg',
+    'images/allgold.jpg'
+  ];
+
+  const puzzleSize = 3; // 3x3 tiles
+  const tileCount = puzzleSize * puzzleSize;
+  const tileSize = 120; // pixels per tile (adjust if needed)
+  let emptyTile = tileCount - 1;
+  let tiles = [];
+  let moves = 0;
+
+  const container = document.getElementById('puzzle-container');
+  const message = document.getElementById('puzzle-message');
+  const shuffleBtn = document.getElementById('shuffle-btn');
+
+  // Pick image based on date (rotate through images)
+  const today = new Date();
+  const imageIndex = today.getDate() % images.length;
+  const imageURL = images[imageIndex];
+
+  container.style.width = tileSize * puzzleSize + 'px';
+  container.style.height = tileSize * puzzleSize + 'px';
+  container.style.border = '4px solid #fff';
+  container.style.borderRadius = '15px';
+  container.style.backgroundImage = `url(${imageURL})`;
+  container.style.backgroundSize = `${tileSize * puzzleSize}px ${tileSize * puzzleSize}px`;
+  container.style.position = 'relative';
+  container.style.userSelect = 'none';
+
+  function createTiles() {
+    tiles = [];
+    container.innerHTML = '';
+    for(let i=0; i<tileCount; i++) {
+      if(i === emptyTile) continue; // skip the empty tile
+
+      const tile = document.createElement('div');
+      tile.style.width = tileSize + 'px';
+      tile.style.height = tileSize + 'px';
+      tile.style.position = 'absolute';
+      tile.style.border = '2px solid #fff';
+      tile.style.borderRadius = '10px';
+      tile.style.cursor = 'pointer';
+
+      // Set tile background from main image (show only the tile part)
+      const x = (i % puzzleSize) * tileSize;
+      const y = Math.floor(i / puzzleSize) * tileSize;
+      tile.style.backgroundImage = `url(${imageURL})`;
+      tile.style.backgroundPosition = `-${x}px -${y}px`;
+      tile.style.backgroundSize = `${tileSize * puzzleSize}px ${tileSize * puzzleSize}px`;
+
+      tile.dataset.index = i;
+      tile.style.left = x + 'px';
+      tile.style.top = y + 'px';
+
+      tile.addEventListener('click', () => {
+        moveTile(parseInt(tile.dataset.index));
+      });
+
+      container.appendChild(tile);
+      tiles.push(i);
+    }
+  }
+
+  function moveTile(index) {
+    const emptyRow = Math.floor(emptyTile / puzzleSize);
+    const emptyCol = emptyTile % puzzleSize;
+    const tileRow = Math.floor(index / puzzleSize);
+    const tileCol = index % puzzleSize;
+
+    // Check if clicked tile is adjacent to empty tile
+    const isAdjacent = (tileRow === emptyRow && Math.abs(tileCol - emptyCol) === 1) ||
+                       (tileCol === emptyCol && Math.abs(tileRow - emptyRow) === 1);
+
+    if(!isAdjacent) return;
+
+    // Swap positions
+    const tileElement = [...container.children].find(t => parseInt(t.dataset.index) === index);
+    if(!tileElement) return;
+
+    // Move tile visually
+    tileElement.style.left = (emptyCol * tileSize) + 'px';
+    tileElement.style.top = (emptyRow * tileSize) + 'px';
+
+    // Update dataset index of tile to emptyTile
+    tileElement.dataset.index = emptyTile;
+
+    // Update tiles array
+    tiles[tiles.indexOf(index)] = emptyTile;
+
+    emptyTile = index;
+    moves++;
+    checkSolved();
+  }
+
+  function shuffle() {
+    moves = 0;
+    emptyTile = tileCount - 1;
+    let previousMove;
+    for(let i=0; i<1000; i++) {
+      const neighbors = getNeighbors(emptyTile);
+      // Avoid undoing previous move
+      const filtered = neighbors.filter(n => n !== previousMove);
+      const nextMove = filtered[Math.floor(Math.random() * filtered.length)];
+      moveTile(nextMove);
+      previousMove = emptyTile;
+    }
+    moves = 0;
+    message.textContent = '';
+  }
+
+  function getNeighbors(tile) {
+    const row = Math.floor(tile / puzzleSize);
+    const col = tile % puzzleSize;
+    const neighbors = [];
+    if(row > 0) neighbors.push(tile - puzzleSize);
+    if(row < puzzleSize -1) neighbors.push(tile + puzzleSize);
+    if(col > 0) neighbors.push(tile - 1);
+    if(col < puzzleSize -1) neighbors.push(tile + 1);
+    return neighbors;
+  }
+
+  function checkSolved() {
+    // Tiles are solved if tile dataset indices equal their position except empty tile
+    let solved = true;
+    for(let i=0; i<tiles.length; i++) {
+      if(parseInt([...container.children][i].dataset.index) !== i) {
+        solved = false;
+        break;
+      }
+    }
+    if(solved) {
+      message.textContent = `Nice! You solved it in ${moves} moves. 🎉`;
+    }
+  }
+
+  shuffleBtn.addEventListener('click', () => {
+    shuffle();
+  });
+
+  // Initialize on page load
+  createTiles();
+  shuffle();
+})();
+</script>
+
 </body>
 
 </html>
