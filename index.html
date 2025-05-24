@@ -69,53 +69,11 @@
       z-index: 999;
     }
 
-    /* Parallax container & layers */
-    .parallax-container {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      /* Keep height consistent with your hero */
-      min-height: 500px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 4rem 10%;
-    }
-
-    .parallax-layer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      pointer-events: none; /* so clicks pass through */
-    }
-
-    /* Background layers with example colors - replace with your images */
-    .layer-back {
-      background: url('images/littlemen-background.jpg') no-repeat center center/cover;
-      filter: brightness(0.6);
-      z-index: 1;
-    }
-
-    .layer-mid {
-      background: url('images/littlemen-midlayer.png') no-repeat center center/contain;
-      z-index: 2;
-      opacity: 0.7;
-    }
-
-    /* Front layer holds actual content */
-    .layer-front {
-      position: relative;
-      z-index: 3;
+    .hero {
       display: flex;
       flex-direction: column-reverse;
       align-items: center;
-      width: 100%;
-      max-width: 1200px;
+      padding: 4rem 10%;
       background: transparent;
     }
 
@@ -124,8 +82,6 @@
       text-align: center;
       margin-top: 2rem;
       animation: slideIn 2s ease;
-      color: #fff;
-      text-shadow: 2px 2px #000;
     }
 
     @keyframes slideIn {
@@ -142,8 +98,8 @@
 
     .hero-text p {
       font-size: 1.2rem;
-      line-height: 1.6;
       color: #fff;
+      line-height: 1.6;
     }
 
     .hero-img img {
@@ -159,10 +115,184 @@
       transform: rotate(2deg) scale(1.08);
     }
 
-    /* Rest of your styles unchanged ... */
-    /* ... keep all your features, reviews, gallery, footer styles as is ... */
+    .features {
+      padding: 4rem 5%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
 
+    .feature {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 2px solid #fff;
+      color: #fff;
+      text-align: center;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      position: relative;
+    }
+
+    .feature:hover {
+      transform: scale(1.05) rotate(-1deg);
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .feature::after {
+      content: '✨';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 1.5rem;
+    }
+
+    .feature h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature p {
+      font-size: 1rem;
+    }
+
+    .reviews, .gallery {
+      padding: 4rem 10%;
+      text-align: center;
+    }
+
+    .reviews h2, .gallery h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #fff;
+      font-family: 'Fredoka', sans-serif;
+    }
+
+    .review {
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 1rem 2rem;
+      margin: 1rem auto;
+      max-width: 600px;
+      color: #fff;
+      border: 1px solid #fff;
+    }
+
+    .review span {
+      display: block;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: #ffca3a;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 15px;
+      border: 4px solid #fff;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(to right, #6a4c93, #8ac926);
+      font-size: 1rem;
+      color: white;
+      border-top: 6px dashed #fff;
+    }
+
+    .easter-egg {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #fff;
+      color: #000;
+      padding: 1rem;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #000;
+      font-family: 'Quicksand', sans-serif;
+      animation: slideUp 0.6s ease forwards;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .cta {
+      text-align: center;
+      margin: 4rem auto 0;
+    }
+
+    .cta-button {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.3rem;
+      padding: 0.9rem 2rem;
+      background: #ffffff;
+      color: #000;
+      border: none;
+      border-radius: 40px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.25);
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: #ffca3a;
+      transform: scale(1.08);
+    }
   </style>
+  <!-- ADD TO THE BOTTOM OF YOUR EXISTING <style> TAG IN <head> -->
+<style>
+  .balloon {
+    position: absolute;
+    bottom: -100px;
+    width: 40px;
+    height: 60px;
+    background-color: red;
+    border-radius: 50% 50% 45% 45%;
+    animation: floatBalloon 10s linear forwards;
+    z-index: 5;
+    cursor: pointer;
+    box-shadow: inset -2px -4px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+  }
+
+  @keyframes floatBalloon {
+    0% {
+      transform: translateY(0) translateX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-120vh) translateX(40px);
+      opacity: 0;
+    }
+  }
+
+  .balloon::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background: white;
+    transform: translateX(-50%);
+  }
+</style>
 
 </head>
 
@@ -172,20 +302,15 @@
     <p>Fun, chaotic, and collectible for EVERYONE</p>
   </header>
 
-  <!-- Parallax hero -->
-  <section class="parallax-container">
-    <div class="parallax-layer layer-back"></div>
-    <div class="parallax-layer layer-mid"></div>
-    <div class="layer-front">
-      <div class="hero-img">
-        <img src="images/littlemen.jpg" alt="LittleMen Toy" />
-      </div>
-      <div class="hero-text">
-        <h2>Welcome to the Madness</h2>
-        <p>
-          Meet LittleMen: the wildest, most collectible ragdoll toys on the planet. They're bendy, bouncy, and built for serious fun — whether you're 8 or 88. Now in sleek grays and metallic golds, designed with ADHD and sensory needs in mind.
-        </p>
-      </div>
+  <section class="hero">
+    <div class="hero-img">
+      <img src="images/littlemen.jpg" alt="LittleMen Toy" />
+    </div>
+    <div class="hero-text">
+      <h2>Welcome to the Madness</h2>
+      <p>
+        Meet LittleMen: the wildest, most collectible ragdoll toys on the planet. They're bendy, bouncy, and built for serious fun — whether you're 8 or 88. Now in sleek grays and metallic golds, designed with ADHD and sensory needs in mind.
+      </p>
     </div>
   </section>
 
@@ -246,7 +371,6 @@
   </footer>
 
   <script>
-    // Easter egg and wave effect (unchanged)
     document.addEventListener('keydown', (e) => {
       if (e.key === 'L') {
         document.getElementById('easterEgg').style.display = 'block';
@@ -257,47 +381,38 @@
       const wave = document.createElement('div');
       wave.classList.add('wave');
       wave.innerText = '👋';
-      wave.style.left = `${e.clientX}px`;
-      wave.style.top = `${e.clientY}px`;
+      wave.style.left = ${e.clientX}px;
+      wave.style.top = ${e.clientY}px;
       document.body.appendChild(wave);
 
       setTimeout(() => {
         wave.remove();
       }, 2000);
     });
-
-    // Balloon effect (unchanged)
-    function createBalloon() {
-      const balloon = document.createElement('div');
-      balloon.className = 'balloon';
-      balloon.style.left = Math.random() * window.innerWidth + 'px';
-      balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
-      balloon.style.animationDuration = `${5 + Math.random() * 5}s`;
-
-      balloon.onclick = () => {
-        balloon.remove();
-      };
-
-      document.body.appendChild(balloon);
-
-      setTimeout(() => {
-        balloon.remove();
-      }, 10000);
-    }
-
-    setInterval(createBalloon, 800);
-
-    // Parallax scroll effect
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const layerBack = document.querySelector('.layer-back');
-      const layerMid = document.querySelector('.layer-mid');
-
-      // Adjust these speeds to get desired parallax effect
-      layerBack.style.transform = `translateY(${scrollTop * 0.3}px)`;
-      layerMid.style.transform = `translateY(${scrollTop * 0.6}px)`;
-    });
   </script>
+  <!-- ADD TO THE BOTTOM OF YOUR <body> JUST BEFORE </body> -->
+<script>
+  function createBalloon() {
+    const balloon = document.createElement('div');
+    balloon.className = 'balloon';
+    balloon.style.left = Math.random() * window.innerWidth + 'px';
+    balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+    balloon.style.animationDuration = `${5 + Math.random() * 5}s`;
+
+    balloon.onclick = () => {
+      balloon.remove();
+    };
+
+    document.body.appendChild(balloon);
+
+    setTimeout(() => {
+      balloon.remove();
+    }, 10000);
+  }
+
+  // Add a new balloon every 800ms
+  setInterval(createBalloon, 800);
+</script>
 
 </body>
 
