@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,7 +11,6 @@
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: 'Fredoka', sans-serif;
       background: linear-gradient(270deg, #ff595e, #ffca3a, #8ac926, #1982c4, #6a4c93);
@@ -21,242 +19,130 @@
       color: #fff;
       overflow-x: hidden;
     }
-
     @keyframes rainbowBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-
-    @keyframes floatUp {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(-200px); opacity: 0; }
-    }
-
     header {
       padding: 3rem 1rem;
       text-align: center;
       background: linear-gradient(to right, #1982c4, #ff595e);
       color: white;
       border-bottom: 6px dashed #fff;
-      animation: bounceIn 1s ease-out;
     }
-
-    @keyframes bounceIn {
-      0% { transform: scale(0.5); opacity: 0; }
-      60% { transform: scale(1.1); opacity: 1; }
-      100% { transform: scale(1); }
-    }
-
     header h1 {
       font-family: 'Press Start 2P', cursive;
       font-size: 2.8rem;
-      color: #fff;
       text-shadow: 3px 3px #ffca3a;
       cursor: pointer;
     }
-
     header p {
       font-size: 1.2rem;
       color: #fffa;
     }
-
-    .wave {
-      position: fixed;
-      font-size: 2rem;
-      animation: floatUp 2s ease forwards;
-      pointer-events: none;
-      z-index: 999;
-    }
-
     .hero {
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
       align-items: center;
       padding: 4rem 10%;
-      background: transparent;
+      text-align: center;
     }
-
     .hero-text {
       max-width: 800px;
-      text-align: center;
-      margin-top: 2rem;
-      animation: slideIn 2s ease;
-    }
-
-    @keyframes slideIn {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    .hero-text h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #fff;
-      text-shadow: 2px 2px #000;
-    }
-
-    .hero-text p {
-      font-size: 1.2rem;
-      color: #fff;
-      line-height: 1.6;
-    }
-
-    .hero-img img {
-      width: 300px;
-      height: auto;
-      border-radius: 20px;
-      border: 8px solid #fff;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
-      transition: transform 0.4s ease;
-    }
-
-    .hero-img img:hover {
-      transform: rotate(2deg) scale(1.08);
-    }
-
-    .features {
-      padding: 4rem 5%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2.5rem;
-    }
-
-    .feature {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 2rem;
-      border: 2px solid #fff;
-      color: #fff;
-      text-align: center;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-      position: relative;
-    }
-
-    .feature:hover {
-      transform: scale(1.05) rotate(-1deg);
-      background-color: rgba(255, 255, 255, 0.3);
-    }
-
-    .feature::after {
-      content: '✨';
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      font-size: 1.5rem;
-    }
-
-    .feature h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .feature p {
-      font-size: 1rem;
-    }
-
-    .reviews, .gallery {
-      padding: 4rem 10%;
-      text-align: center;
-    }
-
-    .reviews h2, .gallery h2 {
-      font-size: 2rem;
       margin-bottom: 2rem;
-      color: #fff;
-      font-family: 'Fredoka', sans-serif;
     }
-
-    .review {
-      background: rgba(255,255,255,0.1);
-      border-radius: 15px;
-      padding: 1rem 2rem;
-      margin: 1rem auto;
-      max-width: 600px;
-      color: #fff;
-      border: 1px solid #fff;
-    }
-
-    .review span {
-      display: block;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-      color: #ffca3a;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .gallery-grid img {
+    .carousel {
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
       width: 100%;
-      border-radius: 15px;
-      border: 4px solid #fff;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
+      max-width: 1000px;
+      margin: 0 auto;
     }
-
-    .gallery-grid img:hover {
-      transform: scale(1.05);
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
     }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: linear-gradient(to right, #6a4c93, #8ac926);
-      font-size: 1rem;
-      color: white;
-      border-top: 6px dashed #fff;
+    .carousel-slide {
+      flex: 0 0 200px;
+      margin: 0 10px;
+      opacity: 0.4;
+      transform: scale(0.85);
+      transition: all 0.5s ease;
     }
-
-    .easter-egg {
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #fff;
-      color: #000;
-      padding: 1rem;
-      border-radius: 15px;
-      box-shadow: 0 0 10px #000;
-      font-family: 'Quicksand', sans-serif;
-      animation: slideUp 0.6s ease forwards;
+    .carousel-slide.active {
+      opacity: 1;
+      transform: scale(1.1);
+      z-index: 2;
     }
-
-    @keyframes slideUp {
-      from { transform: translateY(100px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+    .carousel-slide img {
+      width: 100%;
+      border-radius: 20px;
+      border: 5px solid white;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
     }
-
-    .cta {
-      text-align: center;
-      margin: 4rem auto 0;
-    }
-
-    .cta-button {
-      font-family: 'Fredoka', sans-serif;
-      font-size: 1.3rem;
-      padding: 0.9rem 2rem;
-      background: #ffffff;
-      color: #000;
+    .carousel-button {
+      background: white;
+      color: black;
       border: none;
-      border-radius: 40px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.25);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+      margin: 0 1rem;
       cursor: pointer;
-      transition: transform 0.3s ease, background 0.3s ease;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 3;
     }
-
-    .cta-button:hover {
-      background: #ffca3a;
-      transform: scale(1.08);
-    }
-  </style>
+    .carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px;
+    margin: 3rem auto;
+  }
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .carousel-slide {
+    flex: 0 0 200px;
+    margin: 0 10px;
+    opacity: 0.4;
+    transform: scale(0.85);
+    transition: all 0.5s ease;
+  }
+  .carousel-slide.active {
+    opacity: 1;
+    transform: scale(1.1);
+    z-index: 2;
+  }
+  .carousel-slide img {
+    width: 100%;
+    border-radius: 20px;
+    border: 5px solid white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  }
+  .carousel-button {
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 3;
+  }
+</style>
 </head>
-
 <body>
   <header>
     <h1 id="name">LittleMen</h1>
@@ -264,92 +150,70 @@
   </header>
 
   <section class="hero">
-    <div class="hero-img">
-      <img src="images/littlemen.jpg" alt="LittleMen Toy" />
-    </div>
-    <div class="hero-text">
-      <h2>Welcome to the Madness</h2>
-      <p>
-        Meet LittleMen: the wildest, most collectible ragdoll toys on the planet. They're bendy, bouncy, and built for serious fun — whether you're 8 or 88. Now in sleek grays and metallic golds, designed with ADHD and sensory needs in mind.
-      </p>
-    </div>
-  </section>
-
-  <section class="features">
-    <div class="feature">
-      <h3>Indestructibly Cool</h3>
-      <p>Crash them, smash them, twist them – they love it. Engineered for impact!</p>
-    </div>
-    <div class="feature">
-      <h3>Chill Colors</h3>
-      <p>Matte grays, stealth golds, and smooth textures perfect for focus or fidgeting.</p>
-    </div>
-    <div class="feature">
-      <h3>Build Your Squad</h3>
-      <p>New drops monthly — swap, collect, and create your own crew of chaos.</p>
-    </div>
-  </section>
-
-  <section class="reviews">
-    <h2>What LittleMen Fans Say</h2>
-    <div class="review">“Great quality and awesome customer service!”<span>– Dennise (5⭐)</span></div>
-    <div class="review">“Second time buying and I have some happy kids they love it💖”<span>– Ashlee (5⭐)</span></div>
-    <div class="review">“Absolutely awesome love love! Great communication product well made and amazing for donating profits to help the hungry. Very pleased already ordered again”<span>– Ashlee (5⭐)</span></div>
-    <div class="review">“Great size. Bigger than I expected which its awesome.”<span>– Gianelle (5⭐)</span></div>
-    <div class="review">“Perfect. It met expectations. Thank you!”<span>– Lindsay (5⭐)</span></div>
-    <div class="review">“My son loves this little fidget. Quality is solid! Highly recommended!”<span>– Cody (5⭐)</span></div>
-    <div class="review">“I absolutely love this toy and highly recommend it to everyone.”<span>– Nika (5⭐)</span></div>
-  </section>
-
-  <section class="gallery">
-    <h2>Meet the Squad</h2>
-    <div class="gallery-grid">
-      <img src="images/reptile.jpg" alt="LittleReptile">
-      <img src="images/astronaut.jpg" alt="LittleAstronaut">
-      <img src="images/skeleton.jpg" alt="LittleSkeleton">
-      <img src="images/skelepirate.jpg" alt="LittleSkelePirate">
-      <img src="images/boxer.jpg" alt="LittleBoxer">
-      <img src="images/duck.jpg" alt="LittleDuck">
-      <img src="images/ninja.jpg" alt="LittleNinja">
-      <img src="images/alien.jpg" alt="LittleAlien">
-      <img src="images/allgold.jpg" alt="All Gold LittleRobot">
-    </div>
-  </section>
-
-  <div class="cta">
-    <a href="https://www.littlementoys.etsy.com" target="_blank">
-      <button class="cta-button">Get Your LittleMen</button>
-    </a>
+  <div class="hero-text">
+    <h2>Welcome to the Madness</h2>
+    <p>
+      Meet LittleMen: the wildest, most collectible ragdoll toys on the planet. They're bendy, bouncy, and built for serious fun — whether you're 8 or 88. Now in sleek grays and metallic golds, designed with ADHD and sensory needs in mind.
+    </p>
   </div>
-
-  <div class="easter-egg" id="easterEgg">
-    You found the secret! 🌈 Stay chaotic!
+  <div class="carousel">
+    <button class="carousel-button" onclick="moveCarousel(-1)">&#8592;</button>
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide"><img src="images/reptile.jpg" alt="Reptile"></div>
+      <div class="carousel-slide"><img src="images/astronaut.jpg" alt="Astronaut"></div>
+      <div class="carousel-slide"><img src="images/skeleton.jpg" alt="Skeleton"></div>
+      <div class="carousel-slide"><img src="images/skelepirate.jpg" alt="Skelepirate"></div>
+      <div class="carousel-slide"><img src="images/boxer.jpg" alt="Boxer"></div>
+      <div class="carousel-slide"><img src="images/duck.jpg" alt="Duck"></div>
+      <div class="carousel-slide"><img src="images/ninja.jpg" alt="Ninja"></div>
+      <div class="carousel-slide"><img src="images/alien.jpg" alt="Alien"></div>
+      <div class="carousel-slide"><img src="images/allgold.jpg" alt="Gold"></div>
+    </div>
+    <button class="carousel-button" onclick="moveCarousel(1)">&#8594;</button>
   </div>
-
-  <footer>
-    &copy; 2025 LittleMen Toys — Made to wiggle by Luka L.
-  </footer>
+</section>
 
   <script>
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'L') {
-        document.getElementById('easterEgg').style.display = 'block';
-      }
-    });
+    const track = document.getElementById('carouselTrack');
+    const slides = Array.from(track.children);
+    let currentIndex = 2;
 
-    document.getElementById('name').addEventListener('click', (e) => {
-      const wave = document.createElement('div');
-      wave.classList.add('wave');
-      wave.innerText = '👋';
-      wave.style.left = `${e.clientX}px`;
-      wave.style.top = `${e.clientY}px`;
-      document.body.appendChild(wave);
+    function updateCarousel() {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+      });
+      slides[currentIndex].classList.add('active');
+      const offset = (currentIndex - 2) * (slides[0].offsetWidth + 20);
+      track.style.transform = `translateX(${-offset}px)`;
+    }
 
-      setTimeout(() => {
-        wave.remove();
-      }, 2000);
-    });
-  </script>
+    function moveCarousel(dir) {
+      currentIndex += dir;
+      if (currentIndex < 0) currentIndex = slides.length - 1;
+      if (currentIndex >= slides.length) currentIndex = 0;
+      updateCarousel();
+    }
+
+    window.addEventListener('load', updateCarousel);
+    const track = document.getElementById('carouselTrack');
+  const slides = Array.from(track.children);
+  let currentIndex = 2;
+
+  function updateCarousel() {
+    slides.forEach((slide) => slide.classList.remove('active'));
+    slides[currentIndex].classList.add('active');
+    const offset = (currentIndex - 2) * (slides[0].offsetWidth + 20);
+    track.style.transform = `translateX(${-offset}px)`;
+  }
+
+  function moveCarousel(dir) {
+    currentIndex += dir;
+    if (currentIndex < 0) currentIndex = slides.length - 1;
+    if (currentIndex >= slides.length) currentIndex = 0;
+    updateCarousel();
+  }
+
+  window.addEventListener('load', updateCarousel);
+</script>
 </body>
-
 </html>
