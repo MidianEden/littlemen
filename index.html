@@ -79,17 +79,55 @@
       <div class="drifting-shapes"></div>
 
     }
+      .drifting-shapes {
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 300px;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 0;
+}
+
+.drifting-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  background: rgba(255, 255, 255, 0.15);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.1));
+}
+
+.shape-circle {
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.shape-star {
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle, #ffca3a 60%, transparent 70%);
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%,
+    79% 91%, 50% 70%, 21% 91%, 32% 57%,
+    2% 35%, 39% 35%
+  );
+}
+
 
     .hero-text {
       max-width: 800px;
       text-align: center;
       margin-top: 2rem;
       animation: slideIn 2s ease;
-      
-    }
-    <div id="countdown" style="margin: 1.5rem 0; font-family: 'Fredoka', sans-serif; font-size: 1.3rem; color: #fff; text-align: center; text-shadow: 1px 1px 4px #000;">
+      <div id="countdown" style="margin: 1.5rem 0; font-family: 'Fredoka', sans-serif; font-size: 1.3rem; color: #fff; text-align: center; text-shadow: 1px 1px 4px #000;">
   Next Toy Drop In: <span id="timer">Loading...</span>
 </div>
+    }
+    
 
 
     @keyframes slideIn {
@@ -645,6 +683,91 @@ styleSheet.insertRule(`@keyframes drift {
 
 // Run everything
 createDriftingShapes();
+updateCountdown();
+setInterval(updateCountdown, 1000);
+// Create drifting shapes animation
+const driftingContainer = document.querySelector('.drifting-shapes');
+const shapeCount = 12;
+
+function randomRange(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+for(let i = 0; i < shapeCount; i++) {
+  const shape = document.createElement('div');
+  shape.classList.add('drifting-shape');
+  // Alternate circle or star shapes
+  if(i % 3 === 0) shape.classList.add('shape-star');
+  else shape.classList.add('shape-circle');
+  
+  // Random size and position
+  const size = randomRange(15, 40);
+  shape.style.width = `${size}px`;
+  shape.style.height = `${size}px`;
+  shape.style.top = `${randomRange(10, 280)}px`;
+  shape.style.left = `${randomRange(0, 100)}%`;
+  
+  // Random drifting animation duration & direction
+  const duration = randomRange(15, 35);
+  const direction = Math.random() > 0.5 ? 1 : -1;
+  
+  shape.style.animation = `drift${i} ${duration}s linear infinite`;
+  
+  // Create keyframes dynamically for drifting left/right and slight up/down floating
+  const keyframes = `
+    @keyframes drift${i} {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(${direction * 20}px, 15px); }
+      100% { transform: translate(0, 0); }
+    }
+  `;
+  
+  // Append style dynamically
+  const styleSheet = document.styleSheets[0];
+  styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+  
+  driftingContainer.appendChild(shape);
+}
+
+// Countdown timer for every 2 weeks Friday midnight
+function getNextFriday() {
+  const now = new Date();
+  const msInWeek = 7 * 24 * 60 * 60 * 1000;
+  const msIn2Weeks = msInWeek * 2;
+  const day = now.getDay();
+
+  // Calculate days since last Friday (Friday is 5)
+  const daysSinceFriday = (day >= 5) ? day - 5 : day + 2;
+  const lastFriday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - daysSinceFriday);
+  lastFriday.setHours(0,0,0,0);
+
+  // Calculate next Friday 00:00 every 2 weeks after last Friday
+  let nextFriday = new Date(lastFriday.getTime());
+  while (nextFriday <= now) {
+    nextFriday = new Date(nextFriday.getTime() + msIn2Weeks);
+  }
+  return nextFriday;
+}
+
+function updateCountdown() {
+  const target = getNextFriday();
+  const now = new Date();
+  const diff = target - now;
+
+  if (diff <= 0) {
+    document.getElementById('timer').textContent = 'Now!';
+    return;
+  }
+
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+  const seconds = Math.floor((diff % (1000*60)) / 1000);
+
+  document.getElementById('timer').textContent =
+    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
