@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -255,45 +256,6 @@
       transform: scale(1.08);
     }
   </style>
-  <!-- ADD TO THE BOTTOM OF YOUR EXISTING <style> TAG IN <head> -->
-<style>
-  .balloon {
-    position: absolute;
-    bottom: -100px;
-    width: 40px;
-    height: 60px;
-    background-color: red;
-    border-radius: 50% 50% 45% 45%;
-    animation: floatBalloon 10s linear forwards;
-    z-index: 5;
-    cursor: pointer;
-    box-shadow: inset -2px -4px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
-  }
-
-  @keyframes floatBalloon {
-    0% {
-      transform: translateY(0) translateX(0);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-120vh) translateX(40px);
-      opacity: 0;
-    }
-  }
-
-  .balloon::after {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    width: 2px;
-    height: 20px;
-    background: white;
-    transform: translateX(-50%);
-  }
-</style>
-
 </head>
 
 <body>
@@ -381,8 +343,8 @@
       const wave = document.createElement('div');
       wave.classList.add('wave');
       wave.innerText = '👋';
-      wave.style.left = ${e.clientX}px;
-      wave.style.top = ${e.clientY}px;
+      wave.style.left = `${e.clientX}px`;
+      wave.style.top = `${e.clientY}px`;
       document.body.appendChild(wave);
 
       setTimeout(() => {
@@ -390,30 +352,6 @@
       }, 2000);
     });
   </script>
-  <!-- ADD TO THE BOTTOM OF YOUR <body> JUST BEFORE </body> -->
-<script>
-  function createBalloon() {
-    const balloon = document.createElement('div');
-    balloon.className = 'balloon';
-    balloon.style.left = Math.random() * window.innerWidth + 'px';
-    balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
-    balloon.style.animationDuration = `${5 + Math.random() * 5}s`;
-
-    balloon.onclick = () => {
-      balloon.remove();
-    };
-
-    document.body.appendChild(balloon);
-
-    setTimeout(() => {
-      balloon.remove();
-    }, 10000);
-  }
-
-  // Add a new balloon every 800ms
-  setInterval(createBalloon, 800);
-</script>
-
 </body>
 
 </html>
