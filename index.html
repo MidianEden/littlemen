@@ -2,218 +2,243 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LittleMen Toys</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Fredoka:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
+
     body {
-      font-family: 'Fredoka', sans-serif;
-      background: linear-gradient(270deg, #ff595e, #ffca3a, #8ac926, #1982c4, #6a4c93);
-      background-size: 1000% 1000%;
-      animation: rainbowBG 30s ease infinite;
-      color: #fff;
-      overflow-x: hidden;
-    }
-    @keyframes rainbowBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    header {
-      padding: 3rem 1rem;
-      text-align: center;
-      background: linear-gradient(to right, #1982c4, #ff595e);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #18191f;
       color: white;
-      border-bottom: 6px dashed #fff;
     }
-    header h1 {
-      font-family: 'Press Start 2P', cursive;
-      font-size: 2.8rem;
-      text-shadow: 3px 3px #ffca3a;
-      cursor: pointer;
+
+    .wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
     }
-    header p {
-      font-size: 1.2rem;
-      color: #fffa;
-    }
-    .hero {
+
+    /* Header styles */
+    header {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      padding: 4rem 10%;
-      text-align: center;
-    }
-    .hero-text {
-      max-width: 800px;
       margin-bottom: 2rem;
     }
-    .carousel {
-      position: relative;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      width: 100%;
-      max-width: 1000px;
-      margin: 0 auto;
+
+    header h1 {
+      font-weight: 900;
+      font-size: 3rem;
+      margin: 0;
+      color: #ffca3a;
+      letter-spacing: -0.06em;
+      font-style: italic;
+      user-select: none;
     }
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
+
+    header nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
     }
-    .carousel-slide {
-      flex: 0 0 200px;
-      margin: 0 10px;
-      opacity: 0.4;
-      transform: scale(0.85);
-      transition: all 0.5s ease;
+
+    header nav a:hover {
+      color: #ffca3a;
     }
-    .carousel-slide.active {
-      opacity: 1;
-      transform: scale(1.1);
-      z-index: 2;
+
+    /* Hero section */
+    .hero {
+      background: linear-gradient(90deg, #0f141c 0%, #18191f 100%);
+      padding: 4rem 0;
+      text-align: center;
+      border-radius: 15px;
+      margin-bottom: 3rem;
     }
-    .carousel-slide img {
-      width: 100%;
-      border-radius: 20px;
-      border: 5px solid white;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+
+    .hero h2 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      margin: 0 0 1rem 0;
+      color: #ffca3a;
+      user-select: none;
     }
-    .carousel-button {
-      background: white;
-      color: black;
+
+    .hero p {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 0 0 2rem 0;
+    }
+
+    .hero button {
+      padding: 1rem 3rem;
+      font-weight: 700;
+      font-size: 1.2rem;
+      background-color: #ffca3a;
       border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      font-size: 1.5rem;
-      margin: 0 1rem;
+      border-radius: 40px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero button:hover {
+      background-color: #e6b933;
+    }
+
+    /* Gallery Section */
+    .gallery {
+      margin-bottom: 3rem;
+    }
+
+    .gallery h2 {
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      user-select: none;
+      color: #ffca3a;
+    }
+
+    /* Carousel container */
+    .gallery-grid {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1.5rem;
+      padding-bottom: 1rem;
+      scrollbar-width: none; /* Firefox */
+    }
+
+    .gallery-grid::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+
+    .gallery-grid img {
+      flex: 0 0 auto;
+      width: 180px;
+      scroll-snap-align: start;
+      border-radius: 15px;
+      border: 4px solid #fff;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Carousel controls */
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+      gap: 1rem;
+    }
+
+    .carousel-button {
+      background: #fff;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 40px;
+      font-size: 1.2rem;
       cursor: pointer;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      z-index: 3;
+      transition: background 0.3s ease;
+      user-select: none;
     }
-    .carousel {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    width: 100%;
-    max-width: 1000px;
-    margin: 3rem auto;
-  }
-  .carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-  .carousel-slide {
-    flex: 0 0 200px;
-    margin: 0 10px;
-    opacity: 0.4;
-    transform: scale(0.85);
-    transition: all 0.5s ease;
-  }
-  .carousel-slide.active {
-    opacity: 1;
-    transform: scale(1.1);
-    z-index: 2;
-  }
-  .carousel-slide img {
-    width: 100%;
-    border-radius: 20px;
-    border: 5px solid white;
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  }
-  .carousel-button {
-    background: white;
-    color: black;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-    margin: 0 1rem;
-    cursor: pointer;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    z-index: 3;
-  }
-</style>
+
+    .carousel-button:hover {
+      background: #ffca3a;
+    }
+
+    /* Footer styles */
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      color: #aaa;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .gallery-grid img {
+        width: 140px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1 id="name">LittleMen</h1>
-    <p>Fun, chaotic, and collectible for EVERYONE</p>
-  </header>
+  <div class="wrapper">
+    <header>
+      <h1>LittleMen</h1>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
 
-  <section class="hero">
-  <div class="hero-text">
-    <h2>Welcome to the Madness</h2>
-    <p>
-      Meet LittleMen: the wildest, most collectible ragdoll toys on the planet. They're bendy, bouncy, and built for serious fun — whether you're 8 or 88. Now in sleek grays and metallic golds, designed with ADHD and sensory needs in mind.
-    </p>
+    <section class="hero" id="home">
+      <h2>LittleMen: The Indestructible Toy</h2>
+      <p>Fun, durable, and collectible ragdoll toys made for everyone.</p>
+      <button>Shop Now</button>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <h2>Meet the Squad</h2>
+      <div class="gallery-grid" id="galleryGrid">
+        <img src="images/reptile.jpg" alt="LittleReptile" />
+        <img src="images/astronaut.jpg" alt="LittleAstronaut" />
+        <img src="images/skeleton.jpg" alt="LittleSkeleton" />
+        <img src="images/skelepirate.jpg" alt="LittleSkelePirate" />
+        <img src="images/boxer.jpg" alt="LittleBoxer" />
+        <img src="images/duck.jpg" alt="LittleDuck" />
+        <img src="images/ninja.jpg" alt="LittleNinja" />
+        <img src="images/alien.jpg" alt="LittleAlien" />
+        <img src="images/allgold.jpg" alt="All Gold LittleRobot" />
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-button" id="scrollLeft">&#8592; Prev</button>
+        <button class="carousel-button" id="scrollRight">Next &#8594;</button>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2>About LittleMen</h2>
+      <p>
+        LittleMen toys are designed to bring joy with their fun designs and toughness. Perfect for kids and collectors alike!
+      </p>
+    </section>
+
+    <footer>
+      &copy; 2025 LittleMen Toys. All rights reserved.
+    </footer>
   </div>
-  <div class="carousel">
-    <button class="carousel-button" onclick="moveCarousel(-1)">&#8592;</button>
-    <div class="carousel-track" id="carouselTrack">
-      <div class="carousel-slide"><img src="images/reptile.jpg" alt="Reptile"></div>
-      <div class="carousel-slide"><img src="images/astronaut.jpg" alt="Astronaut"></div>
-      <div class="carousel-slide"><img src="images/skeleton.jpg" alt="Skeleton"></div>
-      <div class="carousel-slide"><img src="images/skelepirate.jpg" alt="Skelepirate"></div>
-      <div class="carousel-slide"><img src="images/boxer.jpg" alt="Boxer"></div>
-      <div class="carousel-slide"><img src="images/duck.jpg" alt="Duck"></div>
-      <div class="carousel-slide"><img src="images/ninja.jpg" alt="Ninja"></div>
-      <div class="carousel-slide"><img src="images/alien.jpg" alt="Alien"></div>
-      <div class="carousel-slide"><img src="images/allgold.jpg" alt="Gold"></div>
-    </div>
-    <button class="carousel-button" onclick="moveCarousel(1)">&#8594;</button>
-  </div>
-</section>
 
   <script>
-    const track = document.getElementById('carouselTrack');
-    const slides = Array.from(track.children);
-    let currentIndex = 2;
+    const gallery = document.getElementById('galleryGrid');
+    const scrollLeftBtn = document.getElementById('scrollLeft');
+    const scrollRightBtn = document.getElementById('scrollRight');
 
-    function updateCarousel() {
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-      });
-      slides[currentIndex].classList.add('active');
-      const offset = (currentIndex - 2) * (slides[0].offsetWidth + 20);
-      track.style.transform = `translateX(${-offset}px)`;
-    }
+    const scrollAmount = 200; // pixels to scroll per click
 
-    function moveCarousel(dir) {
-      currentIndex += dir;
-      if (currentIndex < 0) currentIndex = slides.length - 1;
-      if (currentIndex >= slides.length) currentIndex = 0;
-      updateCarousel();
-    }
+    scrollLeftBtn.addEventListener('click', () => {
+      gallery.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
 
-    window.addEventListener('load', updateCarousel);
-    const track = document.getElementById('carouselTrack');
-  const slides = Array.from(track.children);
-  let currentIndex = 2;
-
-  function updateCarousel() {
-    slides.forEach((slide) => slide.classList.remove('active'));
-    slides[currentIndex].classList.add('active');
-    const offset = (currentIndex - 2) * (slides[0].offsetWidth + 20);
-    track.style.transform = `translateX(${-offset}px)`;
-  }
-
-  function moveCarousel(dir) {
-    currentIndex += dir;
-    if (currentIndex < 0) currentIndex = slides.length - 1;
-    if (currentIndex >= slides.length) currentIndex = 0;
-    updateCarousel();
-  }
-
-  window.addEventListener('load', updateCarousel);
-</script>
+    scrollRightBtn.addEventListener('click', () => {
+      gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
