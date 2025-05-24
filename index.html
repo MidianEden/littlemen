@@ -254,56 +254,6 @@
       background: #ffca3a;
       transform: scale(1.08);
     }
-
-    .carousel {
-  position: relative;
-  max-width: 500px;
-  margin: auto;
-  overflow: hidden;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel-track img {
-  width: 100%;
-  flex: 0 0 100%;
-  border-radius: 15px;
-  border: 4px solid #fff;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-}
-
-.prev,
-.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2rem;
-  color: white;
-  background: rgba(0, 0, 0, 0.3);
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  z-index: 1;
-  border-radius: 50%;
-}
-
-.prev:hover,
-.next:hover {
-  background: rgba(255, 255, 255, 0.5);
-  color: black;
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
-
   </style>
 </head>
 
@@ -400,28 +350,6 @@
       }, 2000);
     });
   </script>
-  <script>
-  const track = document.querySelector('.carousel-track');
-  const images = document.querySelectorAll('.carousel-track img');
-  const prevBtn = document.querySelector('.prev');
-  const nextBtn = document.querySelector('.next');
-  let index = 0;
-
-  function updateCarousel() {
-    track.style.transform = `translateX(-${index * 100}%)`;
-  }
-
-  prevBtn.addEventListener('click', () => {
-    index = (index === 0) ? images.length - 1 : index - 1;
-    updateCarousel();
-  });
-
-  nextBtn.addEventListener('click', () => {
-    index = (index + 1) % images.length;
-    updateCarousel();
-  });
-</script>
-
 </body>
 
 </html>
