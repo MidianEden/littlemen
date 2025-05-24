@@ -24,7 +24,6 @@
       padding: 2rem;
     }
 
-    /* Header styles */
     header {
       display: flex;
       justify-content: space-between;
@@ -55,7 +54,6 @@
       color: #ffca3a;
     }
 
-    /* Hero section */
     .hero {
       background: linear-gradient(90deg, #0f141c 0%, #18191f 100%);
       padding: 4rem 0;
@@ -94,7 +92,6 @@
       background-color: #e6b933;
     }
 
-    /* Gallery Section */
     .gallery {
       margin-bottom: 3rem;
     }
@@ -107,60 +104,80 @@
       color: #ffca3a;
     }
 
-    /* Carousel container */
-    .gallery-grid {
+    .carousel {
+      position: relative;
+    }
+
+    .carousel-track {
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
       gap: 1.5rem;
       padding-bottom: 1rem;
-      scrollbar-width: none; /* Firefox */
+      scrollbar-width: none;
     }
 
-    .gallery-grid::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Opera */
+    .carousel-track::-webkit-scrollbar {
+      display: none;
     }
 
-    .gallery-grid img {
+    .carousel-track img {
       flex: 0 0 auto;
       width: 180px;
+      border-radius: 12px;
       scroll-snap-align: start;
-      border-radius: 15px;
-      border: 4px solid #fff;
+      border: 4px solid white;
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease;
       cursor: pointer;
     }
 
-    .gallery-grid img:hover {
+    .carousel-track img:hover {
       transform: scale(1.05);
     }
 
-    /* Carousel controls */
-    .carousel-controls {
+    .carousel-buttons {
       display: flex;
       justify-content: center;
-      margin-top: 1rem;
       gap: 1rem;
+      margin-top: 1rem;
     }
 
     .carousel-button {
-      background: #fff;
+      background-color: white;
       border: none;
-      padding: 0.7rem 1.2rem;
+      padding: 0.6rem 1.3rem;
       border-radius: 40px;
-      font-size: 1.2rem;
+      font-weight: bold;
+      font-size: 1.1rem;
       cursor: pointer;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      transition: background 0.3s ease;
       user-select: none;
+      transition: background-color 0.3s ease;
     }
 
     .carousel-button:hover {
-      background: #ffca3a;
+      background-color: #ffca3a;
     }
 
-    /* Footer styles */
+    .about {
+      margin-bottom: 3rem;
+    }
+
+    .about h2 {
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      user-select: none;
+      color: #ffca3a;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      font-weight: 600;
+      max-width: 700px;
+    }
+
     footer {
       text-align: center;
       padding: 1rem 0;
@@ -169,9 +186,8 @@
       user-select: none;
     }
 
-    /* Responsive */
     @media (max-width: 600px) {
-      .gallery-grid img {
+      .carousel-track img {
         width: 140px;
       }
     }
@@ -196,20 +212,22 @@
 
     <section class="gallery" id="gallery">
       <h2>Meet the Squad</h2>
-      <div class="gallery-grid" id="galleryGrid">
-        <img src="images/reptile.jpg" alt="LittleReptile" />
-        <img src="images/astronaut.jpg" alt="LittleAstronaut" />
-        <img src="images/skeleton.jpg" alt="LittleSkeleton" />
-        <img src="images/skelepirate.jpg" alt="LittleSkelePirate" />
-        <img src="images/boxer.jpg" alt="LittleBoxer" />
-        <img src="images/duck.jpg" alt="LittleDuck" />
-        <img src="images/ninja.jpg" alt="LittleNinja" />
-        <img src="images/alien.jpg" alt="LittleAlien" />
-        <img src="images/allgold.jpg" alt="All Gold LittleRobot" />
-      </div>
-      <div class="carousel-controls">
-        <button class="carousel-button" id="scrollLeft">&#8592; Prev</button>
-        <button class="carousel-button" id="scrollRight">Next &#8594;</button>
+      <div class="carousel">
+        <div class="carousel-track" id="carouselTrack">
+          <img src="images/reptile.jpg" alt="LittleReptile" />
+          <img src="images/astronaut.jpg" alt="LittleAstronaut" />
+          <img src="images/skeleton.jpg" alt="LittleSkeleton" />
+          <img src="images/skelepirate.jpg" alt="LittleSkelePirate" />
+          <img src="images/boxer.jpg" alt="LittleBoxer" />
+          <img src="images/duck.jpg" alt="LittleDuck" />
+          <img src="images/ninja.jpg" alt="LittleNinja" />
+          <img src="images/alien.jpg" alt="LittleAlien" />
+          <img src="images/allgold.jpg" alt="All Gold LittleRobot" />
+        </div>
+        <div class="carousel-buttons">
+          <button class="carousel-button" id="scrollLeft">&#8592; Prev</button>
+          <button class="carousel-button" id="scrollRight">Next &#8594;</button>
+        </div>
       </div>
     </section>
 
@@ -226,19 +244,20 @@
   </div>
 
   <script>
-    const gallery = document.getElementById('galleryGrid');
-    const scrollLeftBtn = document.getElementById('scrollLeft');
-    const scrollRightBtn = document.getElementById('scrollRight');
+    const track = document.getElementById('carouselTrack');
+    const leftBtn = document.getElementById('scrollLeft');
+    const rightBtn = document.getElementById('scrollRight');
 
-    const scrollAmount = 200; // pixels to scroll per click
+    const scrollDistance = 200;
 
-    scrollLeftBtn.addEventListener('click', () => {
-      gallery.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    leftBtn.addEventListener('click', () => {
+      track.scrollBy({ left: -scrollDistance, behavior: 'smooth' });
     });
 
-    scrollRightBtn.addEventListener('click', () => {
-      gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    rightBtn.addEventListener('click', () => {
+      track.scrollBy({ left: scrollDistance, behavior: 'smooth' });
     });
   </script>
 </body>
 </html>
+
