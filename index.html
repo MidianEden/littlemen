@@ -1,263 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LittleMen Toys</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Fredoka:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background-color: #18191f;
-      color: white;
+      font-family: 'Fredoka', sans-serif;
+      background: linear-gradient(270deg, #ff595e, #ffca3a, #8ac926, #1982c4, #6a4c93);
+      background-size: 1000% 1000%;
+      animation: rainbowBG 30s ease infinite;
+      color: #fff;
+      overflow-x: hidden;
     }
 
-    .wrapper {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
+    @keyframes rainbowBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-200px); opacity: 0; }
     }
 
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
+      padding: 3rem 1rem;
+      text-align: center;
+      background: linear-gradient(to right, #1982c4, #ff595e);
+      color: white;
+      border-bottom: 6px dashed #fff;
+      animation: bounceIn 1s ease-out;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
     }
 
     header h1 {
-      font-weight: 900;
-      font-size: 3rem;
-      margin: 0;
-      color: #ffca3a;
-      letter-spacing: -0.06em;
-      font-style: italic;
-      user-select: none;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 2.8rem;
+      color: #fff;
+      text-shadow: 3px 3px #ffca3a;
+      cursor: pointer;
     }
 
-    header nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: 700;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
+    header p {
+      font-size: 1.2rem;
+      color: #fffa;
     }
 
-    header nav a:hover {
-      color: #ffca3a;
+    .wave {
+      position: fixed;
+      font-size: 2rem;
+      animation: floatUp 2s ease forwards;
+      pointer-events: none;
+      z-index: 999;
     }
 
     .hero {
-      background: linear-gradient(90deg, #0f141c 0%, #18191f 100%);
-      padding: 4rem 0;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      padding: 4rem 10%;
+      background: transparent;
+    }
+
+    .hero-text {
+      max-width: 800px;
       text-align: center;
-      border-radius: 15px;
-      margin-bottom: 3rem;
+      margin-top: 2rem;
+      animation: slideIn 2s ease;
     }
 
-    .hero h2 {
-      font-size: 2.8rem;
-      font-weight: 900;
-      margin: 0 0 1rem 0;
-      color: #ffca3a;
-      user-select: none;
+    @keyframes slideIn {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
-    .hero p {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin: 0 0 2rem 0;
-    }
-
-    .hero button {
-      padding: 1rem 3rem;
-      font-weight: 700;
-      font-size: 1.2rem;
-      background-color: #ffca3a;
-      border: none;
-      border-radius: 40px;
-      cursor: pointer;
-      user-select: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .hero button:hover {
-      background-color: #e6b933;
-    }
-
-    .gallery {
-      margin-bottom: 3rem;
-    }
-
-    .gallery h2 {
-      font-weight: 900;
+    .hero-text h2 {
       font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      user-select: none;
-      color: #ffca3a;
+      margin-bottom: 1rem;
+      color: #fff;
+      text-shadow: 2px 2px #000;
     }
 
-    .carousel {
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    .hero-img img {
+      width: 300px;
+      height: auto;
+      border-radius: 20px;
+      border: 8px solid #fff;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.4s ease;
+    }
+
+    .hero-img img:hover {
+      transform: rotate(2deg) scale(1.08);
+    }
+
+    .features {
+      padding: 4rem 5%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .feature {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 2px solid #fff;
+      color: #fff;
+      text-align: center;
+      transition: transform 0.3s ease, background-color 0.3s ease;
       position: relative;
     }
 
-    .carousel-track {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      gap: 1.5rem;
-      padding-bottom: 1rem;
-      scrollbar-width: none;
+    .feature:hover {
+      transform: scale(1.05) rotate(-1deg);
+      background-color: rgba(255, 255, 255, 0.3);
     }
 
-    .carousel-track::-webkit-scrollbar {
-      display: none;
+    .feature::after {
+      content: '✨';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 1.5rem;
     }
 
-    .carousel-track img {
-      flex: 0 0 auto;
-      width: 180px;
-      border-radius: 12px;
-      scroll-snap-align: start;
-      border: 4px solid white;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
-      cursor: pointer;
+    .feature h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
     }
 
-    .carousel-track img:hover {
-      transform: scale(1.05);
+    .feature p {
+      font-size: 1rem;
     }
 
-    .carousel-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1rem;
+    .reviews, .gallery {
+      padding: 4rem 10%;
+      text-align: center;
     }
 
-    .carousel-button {
-      background-color: white;
-      border: none;
-      padding: 0.6rem 1.3rem;
-      border-radius: 40px;
-      font-weight: bold;
-      font-size: 1.1rem;
-      cursor: pointer;
-      user-select: none;
-      transition: background-color 0.3s ease;
+    .reviews h2, .gallery h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #fff;
+      font-family: 'Fredoka', sans-serif;
     }
 
-    .carousel-button:hover {
-      background-color: #ffca3a;
+    .review {
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 1rem 2rem;
+      margin: 1rem auto;
+      max-width: 600px;
+      color: #fff;
+      border: 1px solid #fff;
     }
 
-    .about {
-      margin-bottom: 3rem;
-    }
-
-    .about h2 {
-      font-weight: 900;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      user-select: none;
+    .review span {
+      display: block;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
       color: #ffca3a;
     }
 
-    .about p {
-      font-size: 1.1rem;
-      font-weight: 600;
-      max-width: 700px;
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 15px;
+      border: 4px solid #fff;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
     }
 
     footer {
       text-align: center;
-      padding: 1rem 0;
-      color: #aaa;
-      font-size: 0.9rem;
-      user-select: none;
+      padding: 2rem;
+      background: linear-gradient(to right, #6a4c93, #8ac926);
+      font-size: 1rem;
+      color: white;
+      border-top: 6px dashed #fff;
     }
 
-    @media (max-width: 600px) {
-      .carousel-track img {
-        width: 140px;
-      }
+    .easter-egg {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #fff;
+      color: #000;
+      padding: 1rem;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #000;
+      font-family: 'Quicksand', sans-serif;
+      animation: slideUp 0.6s ease forwards;
     }
+
+    @keyframes slideUp {
+      from { transform: translateY(100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .cta {
+      text-align: center;
+      margin: 4rem auto 0;
+    }
+
+    .cta-button {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.3rem;
+      padding: 0.9rem 2rem;
+      background: #ffffff;
+      color: #000;
+      border: none;
+      border-radius: 40px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.25);
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: #ffca3a;
+      transform: scale(1.08);
+    }
+
+    .carousel {
+  position: relative;
+  max-width: 500px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-track img {
+  width: 100%;
+  flex: 0 0 100%;
+  border-radius: 15px;
+  border: 4px solid #fff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.prev:hover,
+.next:hover {
+  background: rgba(255, 255, 255, 0.5);
+  color: black;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
   </style>
 </head>
+
 <body>
-  <div class="wrapper">
-    <header>
-      <h1>LittleMen</h1>
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#about">About</a>
-      </nav>
-    </header>
+  <header>
+    <h1 id="name">LittleMen</h1>
+    <p>Fun, chaotic, and collectible for EVERYONE</p>
+  </header>
 
-    <section class="hero" id="home">
-      <h2>LittleMen: The Indestructible Toy</h2>
-      <p>Fun, durable, and collectible ragdoll toys made for everyone.</p>
-      <button>Shop Now</button>
-    </section>
-
-    <section class="gallery" id="gallery">
-      <h2>Meet the Squad</h2>
-      <div class="carousel">
-        <div class="carousel-track" id="carouselTrack">
-          <img src="images/reptile.jpg" alt="LittleReptile" />
-          <img src="images/astronaut.jpg" alt="LittleAstronaut" />
-          <img src="images/skeleton.jpg" alt="LittleSkeleton" />
-          <img src="images/skelepirate.jpg" alt="LittleSkelePirate" />
-          <img src="images/boxer.jpg" alt="LittleBoxer" />
-          <img src="images/duck.jpg" alt="LittleDuck" />
-          <img src="images/ninja.jpg" alt="LittleNinja" />
-          <img src="images/alien.jpg" alt="LittleAlien" />
-          <img src="images/allgold.jpg" alt="All Gold LittleRobot" />
-        </div>
-        <div class="carousel-buttons">
-          <button class="carousel-button" id="scrollLeft">&#8592; Prev</button>
-          <button class="carousel-button" id="scrollRight">Next &#8594;</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="about" id="about">
-      <h2>About LittleMen</h2>
+  <section class="hero">
+    <div class="hero-img">
+      <img src="images/littlemen.jpg" alt="LittleMen Toy" />
+    </div>
+    <div class="hero-text">
+      <h2>Welcome to the Madness</h2>
       <p>
-        LittleMen toys are designed to bring joy with their fun designs and toughness. Perfect for kids and collectors alike!
+        Meet LittleMen: the wildest, most collectible ragdoll toys on the planet. They're bendy, bouncy, and built for serious fun — whether you're 8 or 88. Now in sleek grays and metallic golds, designed with ADHD and sensory needs in mind.
       </p>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-      &copy; 2025 LittleMen Toys. All rights reserved.
-    </footer>
+  <section class="features">
+    <div class="feature">
+      <h3>Indestructibly Cool</h3>
+      <p>Crash them, smash them, twist them – they love it. Engineered for impact!</p>
+    </div>
+    <div class="feature">
+      <h3>Chill Colors</h3>
+      <p>Matte grays, stealth golds, and smooth textures perfect for focus or fidgeting.</p>
+    </div>
+    <div class="feature">
+      <h3>Build Your Squad</h3>
+      <p>New drops monthly — swap, collect, and create your own crew of chaos.</p>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <h2>What LittleMen Fans Say</h2>
+    <div class="review">“Great quality and awesome customer service!”<span>– Dennise (5⭐)</span></div>
+    <div class="review">“Second time buying and I have some happy kids they love it💖”<span>– Ashlee (5⭐)</span></div>
+    <div class="review">“Absolutely awesome love love! Great communication product well made and amazing for donating profits to help the hungry. Very pleased already ordered again”<span>– Ashlee (5⭐)</span></div>
+    <div class="review">“Great size. Bigger than I expected which its awesome.”<span>– Gianelle (5⭐)</span></div>
+    <div class="review">“Perfect. It met expectations. Thank you!”<span>– Lindsay (5⭐)</span></div>
+    <div class="review">“My son loves this little fidget. Quality is solid! Highly recommended!”<span>– Cody (5⭐)</span></div>
+    <div class="review">“I absolutely love this toy and highly recommend it to everyone.”<span>– Nika (5⭐)</span></div>
+  </section>
+
+  <section class="gallery">
+    <h2>Meet the Squad</h2>
+    <div class="gallery-grid">
+      <img src="images/reptile.jpg" alt="LittleReptile">
+      <img src="images/astronaut.jpg" alt="LittleAstronaut">
+      <img src="images/skeleton.jpg" alt="LittleSkeleton">
+      <img src="images/skelepirate.jpg" alt="LittleSkelePirate">
+      <img src="images/boxer.jpg" alt="LittleBoxer">
+      <img src="images/duck.jpg" alt="LittleDuck">
+      <img src="images/ninja.jpg" alt="LittleNinja">
+      <img src="images/alien.jpg" alt="LittleAlien">
+      <img src="images/allgold.jpg" alt="All Gold LittleRobot">
+    </div>
+  </section>
+
+  <div class="cta">
+    <a href="https://www.littlementoys.etsy.com" target="_blank">
+      <button class="cta-button">Get Your LittleMen</button>
+    </a>
   </div>
 
+  <div class="easter-egg" id="easterEgg">
+    You found the secret! 🌈 Stay chaotic!
+  </div>
+
+  <footer>
+    &copy; 2025 LittleMen Toys — Made to wiggle by Luka L.
+  </footer>
+
   <script>
-    const track = document.getElementById('carouselTrack');
-    const leftBtn = document.getElementById('scrollLeft');
-    const rightBtn = document.getElementById('scrollRight');
-
-    const scrollDistance = 200;
-
-    leftBtn.addEventListener('click', () => {
-      track.scrollBy({ left: -scrollDistance, behavior: 'smooth' });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'L') {
+        document.getElementById('easterEgg').style.display = 'block';
+      }
     });
 
-    rightBtn.addEventListener('click', () => {
-      track.scrollBy({ left: scrollDistance, behavior: 'smooth' });
+    document.getElementById('name').addEventListener('click', (e) => {
+      const wave = document.createElement('div');
+      wave.classList.add('wave');
+      wave.innerText = '👋';
+      wave.style.left = `${e.clientX}px`;
+      wave.style.top = `${e.clientY}px`;
+      document.body.appendChild(wave);
+
+      setTimeout(() => {
+        wave.remove();
+      }, 2000);
     });
   </script>
-</body>
-</html>
+  <script>
+  const track = document.querySelector('.carousel-track');
+  const images = document.querySelectorAll('.carousel-track img');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  let index = 0;
 
+  function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    index = (index === 0) ? images.length - 1 : index - 1;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % images.length;
+    updateCarousel();
+  });
+</script>
+
+</body>
+
+</html>
