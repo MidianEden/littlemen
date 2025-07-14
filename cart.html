@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Cart - LittleMen</title>
+  <style>
+    body { font-family: 'Fredoka', sans-serif; padding: 2rem; background-color: #111; color: white; }
+    .cart-item { margin: 1rem 0; padding: 1rem; background: #222; border-radius: 10px; }
+    .cart-total { font-size: 1.5rem; margin-top: 2rem; }
+    button { padding: 0.7rem 1.2rem; border: none; background: #ffca3a; border-radius: 10px; cursor: pointer; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Your Cart</h1>
+  <div id="cart-container"></div>
+  <div class="cart-total" id="total"></div>
+  <button onclick="checkout()">Proceed to Checkout</button>
+
+  <script src="/js/cart.js"></script>
+</body>
+</html>
