@@ -2,25 +2,67 @@
   {
     "id": "robot",
     "name": "Articulated Robot",
-    "price": 9.99,
+    "price": 6.75,
     "image": "images/littlemen.jpg"
   },
   {
     "id": "ninja",
     "name": "Articulated Ninja",
-    "price": 9.99,
+    "price": 7.25,
     "image": "images/ninja.jpg"
   },
   {
     "id": "skeleton",
     "name": "Articulated Skeleton",
-    "price": 9.99,
+    "price": 7.25,
     "image": "images/skeleton.jpg"
   },
   {
     "id": "goldbot",
-    "name": "Gold Robot",
-    "price": 11.99,
+    "name": "AllGold LittleRobot",
+    "price": 7.50,
     "image": "images/allgold.jpg"
+  }
+  {
+    "id": "skelepirate",
+    "name": "LittleSkelePirate",
+    "price": 8,
+    "image": "images/skelepirate.jpg"
+  }
+  {
+    "id": "alien",
+    "name": "LittleAlien",
+    "price": 7.25,
+    "image": "images/alien.jpg"
+  }
+  {
+    "id": "astro",
+    "name": "LittleAstronaut",
+    "price": 7.25,
+    "image": "images/astronaut.jpg"
+  }
+  {
+    "id": "boxer",
+    "name": "LittleBoxer",
+    "price": 7.50,
+    "image": "images/boxer.jpg"
+  }
+  {
+    "id": "crashdum",
+    "name": "LittleCrashDummy",
+    "price": 7.25,
+    "image": "images/.jpg"
+  }
+  {
+    "id": "duck",
+    "name": "LittleDuck",
+    "price": 7.25,
+    "image": "images/duck.jpg"
+  }
+  {
+    "id": "reptile",
+    "name": "LittleReptile",
+    "price": 7.25,
+    "image": "images/reptile.jpg"
   }
 ]
