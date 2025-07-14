@@ -1,0 +1,26 @@
+[
+  {
+    "id": "robot",
+    "name": "Articulated Robot",
+    "price": 9.99,
+    "image": "images/littlemen.jpg"
+  },
+  {
+    "id": "ninja",
+    "name": "Articulated Ninja",
+    "price": 9.99,
+    "image": "images/ninja.jpg"
+  },
+  {
+    "id": "skeleton",
+    "name": "Articulated Skeleton",
+    "price": 9.99,
+    "image": "images/skeleton.jpg"
+  },
+  {
+    "id": "goldbot",
+    "name": "Gold Robot",
+    "price": 11.99,
+    "image": "images/allgold.jpg"
+  }
+]
